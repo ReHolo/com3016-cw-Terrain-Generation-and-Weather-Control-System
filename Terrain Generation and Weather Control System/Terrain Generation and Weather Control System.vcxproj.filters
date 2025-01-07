@@ -66,6 +66,9 @@
     <Image Include="textures\Skybox\top.jpg">
       <Filter>Texture\SkyBox</Filter>
     </Image>
+    <Image Include="textures\Wu.jpg">
+      <Filter>Texture</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\ParticleShader.cpp">
@@ -98,6 +101,9 @@
     <ClCompile Include="src\MenuManager.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="src\Signature.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\MenuManager.h">
@@ -125,6 +131,12 @@
       <Filter>include</Filter>
     </ClInclude>
     <ClInclude Include="include\LoadShaders.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Signature.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\signatureVertices.h">
       <Filter>include</Filter>
     </ClInclude>
   </ItemGroup>

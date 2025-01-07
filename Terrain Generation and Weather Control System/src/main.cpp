@@ -11,6 +11,7 @@
 #include "Skybox.h"
 #include "MenuManager.h"
 #include "ParticleSystem.h"
+#include "Signature.h"
 
 
 
@@ -23,7 +24,8 @@ float deltaTime = 0.0f;
 float lastFrame = 0.0f;
 bool firstMouse = true;
 float lastX = 400.0f, lastY = 300.0f;
-
+int windowWidth = 1920;
+int windowHeight = 1080;
 
 
 
@@ -43,7 +45,7 @@ int main() {
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
-    GLFWwindow* window = glfwCreateWindow(1920,1080,"Terrain Generation with Skybox", nullptr, nullptr);
+    GLFWwindow* window = glfwCreateWindow(windowWidth, windowHeight, "Terrain Generation with Skybox", nullptr, nullptr);
     if (!window) {
         std::cerr << "Failed to create GLFW window" << std::endl;
         glfwTerminate();
@@ -56,11 +58,16 @@ int main() {
         return -1;
     }
 
+    
+
     glViewport(0, 0, 1920, 1080);
     glfwSetCursorPosCallback(window, mouse_callback);
     glfwSetScrollCallback(window, scroll_callback);
     glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
     glEnable(GL_DEPTH_TEST);
+    glEnable(GL_BLEND);
+    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+    glEnable(GL_PROGRAM_POINT_SIZE);
 
     GLuint terrainShaderProgram, particleShaderProgram;
 
@@ -76,7 +83,7 @@ int main() {
         return -1;
     }
 
-    
+
 
     // 将环境光颜色传递到着色器
     GLuint ambientColorLoc = glGetUniformLocation(shaderProgram, "ambientColor");
@@ -101,8 +108,8 @@ int main() {
         return -1;
     }
 
-    
-    
+
+
 
     std::vector<std::string> faces = {
         "textures/skybox/right.jpg",
@@ -113,10 +120,10 @@ int main() {
         "textures/skybox/back.jpg"
     };
     Skybox skybox(faces);
-    
-    Terrain terrain;
-    
 
+    Terrain terrain;
+
+    
     MenuManager menuManager(window, terrain);
 
     ParticleSystem particleSystem;
@@ -128,7 +135,10 @@ int main() {
     // 初始化粒子系统
     particleSystem.init();
 
+    Signature signature;
     
+    
+
     while (!glfwWindowShouldClose(window)) {
         float currentFrame = glfwGetTime();
         deltaTime = currentFrame - lastFrame;
@@ -139,7 +149,7 @@ int main() {
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
         glm::mat4 view = camera.GetViewMatrix();
-        glm::mat4 projection = glm::perspective(glm::radians(camera.Zoom),1280.0f / 720.0f, 0.1f, 1000.0f);
+        glm::mat4 projection = glm::perspective(glm::radians(camera.Zoom), 1280.0f / 720.0f, 0.1f, 1000.0f);
 
 
         glUniform3fv(lightPosLoc, 1, glm::value_ptr(lightPos));
@@ -165,10 +175,10 @@ int main() {
         glDepthFunc(GL_LESS);   // 恢复默认深度函数
 
         glDepthMask(GL_FALSE); // 禁止深度写入
-        
+
         glDepthMask(GL_TRUE);  // 恢复深度写入
 
-        
+
         // 渲染地形
         glUseProgram(shaderProgram);
         glm::mat4 model = glm::mat4(1.0f);
@@ -189,24 +199,39 @@ int main() {
         glUniform1i(glGetUniformLocation(shaderProgram, "snowTexture"), 2);
 
         menuManager.processInput();
-        
-       
+
+
 
         // 更新粒子系统
         particleSystem.update(deltaTime);
+
+        
         // 渲染地形
         terrain.render();
 
-        // 渲染菜单
-        menuManager.render(window);
-       
-        particleSystem.render(projection, view);
         
+
+        particleSystem.render(projection, view);
+
+        // 获取当前窗口尺寸
+        int windowWidth, windowHeight;
+        glfwGetFramebufferSize(window, &windowWidth, &windowHeight);
+
+        // 设置正交投影矩阵用于 UI 元素（签名）
+        glm::mat4 orthoProjection = glm::ortho(0.0f, static_cast<float>(windowWidth),
+            0.0f, static_cast<float>(windowHeight), -1.0f, 1.0f);
+        glm::mat4 identityView = glm::mat4(1.0f); // 声明并初始化 identityView
+
+        // 渲染签名矩形（作为 UI 元素）
+        signature.render(orthoProjection, identityView, static_cast<float>(windowWidth), static_cast<float>(windowHeight));
+        
+        glUseProgram(shaderProgram);
+
         glfwSwapBuffers(window);
         glfwPollEvents();
 
-        
        
+
     }
 
     glfwTerminate();
@@ -228,10 +253,9 @@ void processInput(GLFWwindow* window) {
 
     if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS)
         camera.ProcessKeyboard(RIGHT, deltaTime);
+  
 
- 
-		
-	
+
 }
 
 
@@ -255,6 +279,3 @@ void mouse_callback(GLFWwindow* window, double xpos, double ypos) {
 void scroll_callback(GLFWwindow* window, double xoffset, double yoffset) {
     camera.ProcessMouseScroll(yoffset);
 }
-
-
-

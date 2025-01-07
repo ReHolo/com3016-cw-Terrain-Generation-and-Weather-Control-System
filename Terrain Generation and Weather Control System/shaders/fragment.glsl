@@ -32,7 +32,7 @@ float noise(vec2 p) {
 
     return mix(mix(a, b, f.x), mix(c, d, f.x), f.y);
 }
-
+uniform bool isTerrain; 
 void main() {
     // 法线归一化
     vec3 norm = normalize(Normal);

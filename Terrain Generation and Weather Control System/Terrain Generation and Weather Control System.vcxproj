@@ -112,6 +112,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>./include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -155,6 +156,7 @@
     <Image Include="textures\Skybox\top.jpg" />
     <Image Include="textures\snow.jpg" />
     <Image Include="textures\trerrain.jpg" />
+    <Image Include="textures\Wu.jpg" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Camera.cpp" />
@@ -164,6 +166,7 @@
     <ClCompile Include="src\MenuManager.cpp" />
     <ClCompile Include="src\ParticleShader.cpp" />
     <ClCompile Include="src\ParticleSystem.cpp" />
+    <ClCompile Include="src\Signature.cpp" />
     <ClCompile Include="src\Skybox.cpp" />
     <ClCompile Include="src\Terrain.cpp" />
     <ClCompile Include="src\TextureLoader.cpp" />
@@ -175,6 +178,8 @@
     <ClInclude Include="include\Particle.h" />
     <ClInclude Include="include\ParticleShader.h" />
     <ClInclude Include="include\ParticleSystem.h" />
+    <ClInclude Include="include\Signature.h" />
+    <ClInclude Include="include\signatureVertices.h" />
     <ClInclude Include="include\Skybox.h" />
     <ClInclude Include="include\Terrain.h" />
     <ClInclude Include="include\TextureLoader.h" />

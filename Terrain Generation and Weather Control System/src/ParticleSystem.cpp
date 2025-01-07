@@ -16,7 +16,7 @@ uniform mat4 uView;
 void main()
 {
     gl_Position = uProjection * uView * vec4(aPos, 1.0);
-    gl_PointSize =100.0; // 点大小
+    gl_PointSize =3.0; // 点大小
 }
 )";
 
