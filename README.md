@@ -94,6 +94,19 @@
 - Dynamic skybox rendering.
 
 ---
+## UML Diagram
+
+Below is the UML diagram for the system. It visualizes the relationships between different modules:
+
+![UML Diagram](./UML.png)
+
+---
+## Resources
+
+- **Material Textures**: High-quality PBR textures for terrain are sourced from [Polyhaven](https://polyhaven.com/).  
+- **Skybox Textures**: Space-themed skybox textures are sourced from [OpenGameArt](https://opengameart.org/content/space-skybox-1).
+
+---
 
 ## Author
 
