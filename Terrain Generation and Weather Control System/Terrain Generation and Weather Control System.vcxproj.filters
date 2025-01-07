@@ -14,69 +14,118 @@
     <Filter Include="Texture">
       <UniqueIdentifier>{24ed625e-8c39-435c-9606-63d00313cbd8}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Weather">
-      <UniqueIdentifier>{581cd4ba-f678-46e6-98ad-a0e1cbf34ca6}</UniqueIdentifier>
+    <Filter Include="Texture\SkyBox">
+      <UniqueIdentifier>{5b04477c-5695-466c-9333-75102af30c5c}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="Camera.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="LoadShaders.cpp">
+    <None Include="shaders\fragment.glsl">
       <Filter>shaders</Filter>
-    </ClCompile>
-    <ClCompile Include="TextureLoader.cpp">
+    </None>
+    <None Include="shaders\skybox_fragment.glsl">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="shaders\skybox_vertex.glsl">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="shaders\vertex.glsl">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="src\Terrain Generation and Weather Control System.vcxproj">
+      <Filter>src</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="textures\grass.jpg">
       <Filter>Texture</Filter>
-    </ClCompile>
-    <ClCompile Include="Terrain.cpp">
+    </Image>
+    <Image Include="textures\rock.jpg">
+      <Filter>Texture</Filter>
+    </Image>
+    <Image Include="textures\snow.jpg">
+      <Filter>Texture</Filter>
+    </Image>
+    <Image Include="textures\trerrain.jpg">
+      <Filter>Texture</Filter>
+    </Image>
+    <Image Include="textures\Skybox\back.jpg">
+      <Filter>Texture\SkyBox</Filter>
+    </Image>
+    <Image Include="textures\Skybox\bottom.jpg">
+      <Filter>Texture\SkyBox</Filter>
+    </Image>
+    <Image Include="textures\Skybox\front.jpg">
+      <Filter>Texture\SkyBox</Filter>
+    </Image>
+    <Image Include="textures\Skybox\left.jpg">
+      <Filter>Texture\SkyBox</Filter>
+    </Image>
+    <Image Include="textures\Skybox\right.jpg">
+      <Filter>Texture\SkyBox</Filter>
+    </Image>
+    <Image Include="textures\Skybox\top.jpg">
+      <Filter>Texture\SkyBox</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\ParticleShader.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="glad.c">
+    <ClCompile Include="src\ParticleSystem.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="MenuManager.cpp">
+    <ClCompile Include="src\Skybox.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="Skybox.cpp">
+    <ClCompile Include="src\Terrain.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="ParticleSystem.cpp">
-      <Filter>Weather</Filter>
+    <ClCompile Include="src\TextureLoader.cpp">
+      <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="ParticleShader.cpp">
-      <Filter>shaders</Filter>
+    <ClCompile Include="src\Camera.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\glad.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\LoadShaders.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\main.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\MenuManager.cpp">
+      <Filter>src</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Camera.h">
+    <ClInclude Include="include\MenuManager.h">
       <Filter>include</Filter>
     </ClInclude>
-    <ClInclude Include="LoadShaders.h">
-      <Filter>shaders</Filter>
-    </ClInclude>
-    <ClInclude Include="TextureLoader.h">
-      <Filter>Texture</Filter>
-    </ClInclude>
-    <ClInclude Include="Terrain.h">
+    <ClInclude Include="include\Particle.h">
       <Filter>include</Filter>
     </ClInclude>
-    <ClInclude Include="MenuManager.h">
+    <ClInclude Include="include\ParticleShader.h">
       <Filter>include</Filter>
     </ClInclude>
-    <ClInclude Include="Skybox.h">
+    <ClInclude Include="include\ParticleSystem.h">
       <Filter>include</Filter>
     </ClInclude>
-    <ClInclude Include="Particle.h">
-      <Filter>Weather</Filter>
+    <ClInclude Include="include\Skybox.h">
+      <Filter>include</Filter>
     </ClInclude>
-    <ClInclude Include="ParticleSystem.h">
-      <Filter>Weather</Filter>
+    <ClInclude Include="include\Terrain.h">
+      <Filter>include</Filter>
     </ClInclude>
-    <ClInclude Include="ParticleShader.h">
-      <Filter>shaders</Filter>
+    <ClInclude Include="include\TextureLoader.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Camera.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\LoadShaders.h">
+      <Filter>include</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

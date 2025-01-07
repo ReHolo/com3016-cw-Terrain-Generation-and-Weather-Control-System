@@ -127,7 +127,6 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\Users\ww122\source\repos\Terrain Generation and Weather Control System\Terrain Generation and Weather Control System\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -138,11 +137,33 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Camera.cpp" />
+    <ClCompile Include="glad.c" />
+    <ClCompile Include="MenuManager.cpp" />
+    <ClCompile Include="ParticleShader.cpp" />
+    <ClCompile Include="ParticleSystem.cpp" />
+    <ClCompile Include="Skybox.cpp" />
+    <ClCompile Include="Terrain.cpp" />
+    <ClCompile Include="LoadShaders.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="TextureLoader.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Camera.h" />
+    <ClInclude Include="MenuManager.h" />
+    <ClInclude Include="Particle.h" />
+    <ClInclude Include="ParticleShader.h" />
+    <ClInclude Include="ParticleSystem.h" />
+    <ClInclude Include="Skybox.h" />
+    <ClInclude Include="Terrain.h" />
+    <ClInclude Include="LoadShaders.h" />
+    <ClInclude Include="TextureLoader.h" />
+  </ItemGroup>
+  <ItemGroup>
     <None Include="shaders\fragment.glsl" />
     <None Include="shaders\skybox_fragment.glsl" />
     <None Include="shaders\skybox_vertex.glsl" />
     <None Include="shaders\vertex.glsl" />
-    <None Include="src\Terrain Generation and Weather Control System.vcxproj" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="textures\grass.jpg" />
@@ -155,29 +176,6 @@
     <Image Include="textures\Skybox\top.jpg" />
     <Image Include="textures\snow.jpg" />
     <Image Include="textures\trerrain.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="src\Camera.cpp" />
-    <ClCompile Include="src\glad.c" />
-    <ClCompile Include="src\LoadShaders.cpp" />
-    <ClCompile Include="src\main.cpp" />
-    <ClCompile Include="src\MenuManager.cpp" />
-    <ClCompile Include="src\ParticleShader.cpp" />
-    <ClCompile Include="src\ParticleSystem.cpp" />
-    <ClCompile Include="src\Skybox.cpp" />
-    <ClCompile Include="src\Terrain.cpp" />
-    <ClCompile Include="src\TextureLoader.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="include\Camera.h" />
-    <ClInclude Include="include\LoadShaders.h" />
-    <ClInclude Include="include\MenuManager.h" />
-    <ClInclude Include="include\Particle.h" />
-    <ClInclude Include="include\ParticleShader.h" />
-    <ClInclude Include="include\ParticleSystem.h" />
-    <ClInclude Include="include\Skybox.h" />
-    <ClInclude Include="include\Terrain.h" />
-    <ClInclude Include="include\TextureLoader.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
