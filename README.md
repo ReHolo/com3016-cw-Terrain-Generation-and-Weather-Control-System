@@ -4,7 +4,7 @@
 
 **Project Name**: Terrain Generation and Weather Control System  
 **Objective**: Implement a procedural terrain generation and real-time weather control system with ambient lighting, particle effects, and user interaction. This project showcases dynamic terrain rendering, weather effects, and camera control in an OpenGL environment.
-
+**Youtube**: https://youtu.be/aAriyz5htzY
 ---
 
 ## Features
